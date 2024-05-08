@@ -3,6 +3,9 @@ for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click",function(){
         var innerText = this.textContent;
+        var audio = new Audio();
+        audio.src = "./sounds/" + innerText + ".mp3"
+        audio.preload = 'auto';
         playAudio(innerText);
         buttonAnimation(innerText);
     });
@@ -14,6 +17,7 @@ document.addEventListener("keydown",function(event)
     event.stopPropagation();
     event.preventDefault();
     event.handled = true;
+    
     playAudio(event.key);
     buttonAnimation(event.key);
 });
@@ -49,7 +53,7 @@ function playAudio(key)
             case "l":
             var audio =new Audio("./sounds/tom-4.mp3");
             audio.play();
-            break;  
+            break;
             default : console.log(innerText);
     }   
 }
