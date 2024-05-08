@@ -10,6 +10,10 @@ for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 
 document.addEventListener("keydown",function(event)
 {
+    if(event.handled === false) return
+    event.stopPropagation();
+    event.preventDefault();
+    event.handled = true;
     playAudio(event.key);
     buttonAnimation(event.key);
 });
