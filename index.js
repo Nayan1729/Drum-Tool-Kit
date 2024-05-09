@@ -1,11 +1,14 @@
-
+       var soundArr = ["kick-bass","crash","snare","tom-1","tom-2","tom-3","tom-4"] 
+        for (var i=0;i<soundArr.length;i++)
+            {
+                var audio = new Audio();
+                audio.src = "./sounds/" + soundArr[i] + ".mp3"
+                audio.preload = 'auto';
+            }
 for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click",function(event){
         var innerText = this.textContent;
-        var audio = new Audio();
-        audio.src = "./sounds/" + innerText + ".mp3"
-        audio.preload = 'auto';
         playAudio(innerText);
         buttonAnimation(innerText);
     });
@@ -20,7 +23,7 @@ for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 }
 
 document.addEventListener("keydown",function(event)
-{
+{   
     playAudio(event.key);
     buttonAnimation(event.key);
 });
