@@ -2,7 +2,6 @@
 for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click",function(event){
-        event.preventDefault();
         var innerText = this.textContent;
         var audio = new Audio();
         audio.src = "./sounds/" + innerText + ".mp3"
@@ -10,9 +9,7 @@ for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
         playAudio(innerText);
         buttonAnimation(innerText);
     });
-    document.querySelectorAll(".drum")[i].addEventListener("touchstart", function(event) {
-        event.preventDefault();
-        
+    document.querySelectorAll(".drum")[i].addEventListener("touchstart", function(event) {    
         var innerText = this.textContent;
         var audio = new Audio();
         audio.src = "./sounds/" + innerText + ".mp3";
@@ -24,11 +21,6 @@ for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 
 document.addEventListener("keydown",function(event)
 {
-    if(event.handled === false) return
-    event.stopPropagation();
-    event.preventDefault();
-    event.handled = true;
-    
     playAudio(event.key);
     buttonAnimation(event.key);
 });
