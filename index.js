@@ -8,11 +8,13 @@
 for(var i=0 ;i<document.querySelectorAll(".drum").length;i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click",function(event){
+        event.preventDefault();
         var innerText = this.textContent;
         playAudio(innerText);
         buttonAnimation(innerText);
     });
     document.querySelectorAll(".drum")[i].addEventListener("touchstart", function(event) {    
+        event.preventDefault();
         var innerText = this.textContent;
         var audio = new Audio();
         audio.src = "./sounds/" + innerText + ".mp3";
